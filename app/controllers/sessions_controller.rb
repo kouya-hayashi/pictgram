@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out
-    redirect_to root_uel, info 'ログアウトしました'
+    redirect_to root_uel, info: 'ログアウトしました'
   end
 
   private
@@ -27,11 +27,7 @@ class SessionsController < ApplicationController
     session.delete(:user_id)
     @current_user = nil
   end
-end 
+end
 
 
   private
-  def log_in(user)
-    session[:user_id] = user.id
-  end
-end

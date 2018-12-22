@@ -1,4 +1,8 @@
 class TopicsController < ApplicationController
+  def index
+    @topics = Topic.all.includes(:favorite_users)
+  end
+
   def new
     @topic = Topic.new
   end
@@ -19,3 +23,7 @@ class TopicsController < ApplicationController
     params.require(:topic).permit(:image, :description)
   end
 end
+
+#def index
+  #@topics = Topic.all
+#end
